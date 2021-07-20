@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--edittext for adding a new note data-->
+    <EditText
+        android:id="@+id/idEdtNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Enter Note Name" />
+
+    <!--button for adding a new note-->
+    <Button
+        android:id="@+id/idBtnAddNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtNote"
+        android:layout_margin="5dp"
+        android:padding="3dp"
+        android:text="Add Note"
+        android:textAllCaps="false" />
+
+    <!--recycler view for displaying all notes-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notesRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/idBtnAddNote" />
+
+</RelativeLayout>
