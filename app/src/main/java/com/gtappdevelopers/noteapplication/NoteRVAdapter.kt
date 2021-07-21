@@ -8,7 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class NoteRVAdapter(val context: Context, val noteClickInterface: NoteClickInterface) :
+class NoteRVAdapter(
+    val context: Context,
+    val noteClickDeleteInterface: NoteClickDeleteInterface,
+    val noteClickInterface: NoteClickInterface
+) :
     RecyclerView.Adapter<NoteRVAdapter.ViewHolder>() {
 
     //on below line we are creating a variable for our all notes list.
@@ -36,6 +40,12 @@ class NoteRVAdapter(val context: Context, val noteClickInterface: NoteClickInter
         //on below line we are adding click listner to our delete image view icon.
         holder.deleteIV.setOnClickListener {
             //on below line we are calling a note click interface and we are passing a position to it.
+            noteClickDeleteInterface.onDeleteIconClick(allNotes.get(position))
+        }
+
+        //on below line we are adding click listner to our recycler view item.
+        holder.itemView.setOnClickListener {
+            //on below line we are calling a note click interface and we are passing a position to it.
             noteClickInterface.onNoteClick(allNotes.get(position))
         }
     }
@@ -57,7 +67,12 @@ class NoteRVAdapter(val context: Context, val noteClickInterface: NoteClickInter
 
 }
 
-interface NoteClickInterface {
+interface NoteClickDeleteInterface {
     //creating a method for click action on delete image view.
+    fun onDeleteIconClick(note: Note)
+}
+
+interface NoteClickInterface {
+    //creating a method for click action on recycler view item for updating it.
     fun onNoteClick(note: Note)
 }
