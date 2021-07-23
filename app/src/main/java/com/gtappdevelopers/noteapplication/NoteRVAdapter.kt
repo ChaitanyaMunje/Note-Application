@@ -22,6 +22,7 @@ class NoteRVAdapter(
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //on below line we are creating an initializing all our variables which we have added in layout file.
         val noteTV = itemView.findViewById<TextView>(R.id.idTVNote)
+        val dateTV = itemView.findViewById<TextView>(R.id.idTVDate)
         val deleteIV = itemView.findViewById<ImageView>(R.id.idIVDelete)
     }
 
@@ -36,7 +37,8 @@ class NoteRVAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //on below line we are setting data to item of recycler view.
-        holder.noteTV.setText(allNotes.get(position).text)
+        holder.noteTV.setText(allNotes.get(position).noteTitle)
+        holder.dateTV.setText("Last Updated : "+allNotes.get(position).timeStamp)
         //on below line we are adding click listner to our delete image view icon.
         holder.deleteIV.setOnClickListener {
             //on below line we are calling a note click interface and we are passing a position to it.

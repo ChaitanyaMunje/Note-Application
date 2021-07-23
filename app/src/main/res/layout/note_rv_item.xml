@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/black_shade_2"
     app:cardCornerRadius="5dp"
     app:cardElevation="3dp">
 
@@ -21,7 +22,21 @@
             android:layout_toLeftOf="@id/idIVDelete"
             android:padding="4dp"
             android:text="Note"
-            android:textColor="@color/black" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <!--text view for displaying our last updated text-->
+        <TextView
+            android:id="@+id/idTVDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idTVNote"
+            android:layout_margin="3dp"
+            android:layout_toLeftOf="@id/idIVDelete"
+            android:padding="4dp"
+            android:text="Updated At"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
 
         <!--imageview for displaying delete icon-->
         <ImageView
@@ -30,9 +45,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_margin="3dp"
             android:padding="3dp"
-            android:src="@drawable/ic_delete" />
+            android:src="@drawable/ic_delete"
+            app:tint="@color/white" />
 
     </RelativeLayout>
 
